@@ -12,28 +12,27 @@ module.exports = {
 
   inputs: {
     type: {
-      type: "string",
-      description: "A (very) brief description of the item."
+      type: "string"
     },
     firstName: {
-      type: "string",
-      description: "A (very) brief description of the item."
+      type: "string"
     },
     lastName: {
-      type: "string",
-      description: "A (very) brief description of the item."
+      type: "string"
     },
     email: {
-      type: "string",
-      description: "A (very) brief description of the item."
+      type: "string"
     },
     meetingLink: {
-      type: "string",
-      description: "A (very) brief description of the item."
+      type: "string"
     }
   },
 
   exits: {
+    invalidOrExpiredToken: {
+      responseType: "expired",
+      description: "The provided token is expired, invalid, or already used up."
+    },
     success: {
       outputDescription: "The newly created `Advisor`.",
       outputExample: {}
@@ -41,8 +40,6 @@ module.exports = {
   },
 
   fn: async function(inputs) {
-    console.log("hello I am here!!!", inputs);
-
     var done = await Employees.create({
       type: inputs.type,
       first_name: inputs.firstName,
@@ -50,7 +47,9 @@ module.exports = {
       email: inputs.email,
       meeting_link: inputs.meetingLink
     }).fetch();
-    console.log("Status ==>", done);
-    return { status: done };
+    console.log("done ", done);
+    if (done.id > 0) {
+      return { id: done.id, message: "Advisor created successfully" };
+    }
   }
 };
