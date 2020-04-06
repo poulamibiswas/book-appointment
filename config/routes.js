@@ -19,7 +19,8 @@ module.exports.routes = {
    ***************************************************************************/
 
   "GET /": { view: "pages/homepage" },
-  "POST /createAdvisor": "employees/add-employee"
+  "POST /createAdvisor": "employees/add-employee",
+  "GET /retrieveAdvisor": "employees/retrieve-employee"
 
   /***************************************************************************
    *                                                                          *
