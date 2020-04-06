@@ -16,7 +16,8 @@
     "sails-mysql": "^1.0.1"
   },
   "devDependencies": {
-    "eslint": "5.16.0"
+    "eslint": "5.16.0",
+    "knex": "^0.20.13"
   },
   "scripts": {
     "start": "NODE_ENV=production node app.js",
