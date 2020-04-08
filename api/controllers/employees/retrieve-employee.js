@@ -11,8 +11,8 @@ module.exports = {
   description: "Add a new advisor to the existing list of advisors",
 
   inputs: {
-    firstName: {
-      type: "string"
+    id: {
+      type: "number"
     }
   },
 
@@ -29,11 +29,11 @@ module.exports = {
 
   fn: async function() {
     var retrievedEmployee = await Employees.find({
-      first_name: this.req.param("firstName")
+      id: this.req.param("id")
     });
 
     if (retrievedEmployee.length == 0) {
-      return { message: "No employee with the given first name" };
+      return { message: "No employee with the given input" };
     }
 
     return { employee: retrievedEmployee };
