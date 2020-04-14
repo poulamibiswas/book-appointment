@@ -6,9 +6,9 @@
  */
 
 module.exports = {
-  friendlyName: "Add a new Advisor",
+  friendlyName: "Get all advisors",
 
-  description: "Add a new advisor to the existing list of advisors",
+  description: "Get all advisors",
 
   // inputs: {
   //   id: {

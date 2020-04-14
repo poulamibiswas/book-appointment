@@ -19,10 +19,11 @@ module.exports.routes = {
    ***************************************************************************/
 
   "GET /": { view: "pages/homepage" },
-  "POST /advisor": "employees/add-employee",
-  "GET /advisor": "employees/retrieve-employee",
+  "POST /advisor": "employees/add-advisor",
+  "GET /advisor": "employees/retrieve-advisor",
   "GET /advisor/all": "employees/retrieve-all-advisors",
-  "DELETE /advisor": "employees/delete-employee"
+  "DELETE /advisor": "employees/delete-advisor",
+  "POST /advisors/:id/calendar/block": "appointments/add-availability",
 
   /***************************************************************************
    *                                                                          *

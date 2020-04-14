@@ -6,30 +6,31 @@
  */
 
 module.exports = {
-  friendlyName: "Add a new Advisor",
+  friendlyName: "Get employee details",
 
-  description: "Add a new advisor to the existing list of advisors",
+  description: "Get employee details by email address",
 
   inputs: {
     id: {
-      type: "number"
-    }
+      type: "number",
+    },
   },
 
   exits: {
     invalidOrExpiredToken: {
       responseType: "expired",
-      description: "The provided token is expired, invalid, or already used up."
+      description:
+        "The provided token is expired, invalid, or already used up.",
     },
     success: {
       outputDescription: "The newly created `Advisor`.",
-      outputExample: {}
-    }
+      outputExample: {},
+    },
   },
 
-  fn: async function() {
+  fn: async function () {
     var retrievedEmployee = await Employees.find({
-      id: this.req.param("id")
+      id: this.req.param("id"),
     });
 
     if (retrievedEmployee.length == 0) {
@@ -37,5 +38,5 @@ module.exports = {
     }
 
     return { employee: retrievedEmployee };
-  }
+  },
 };
