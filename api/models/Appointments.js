@@ -6,23 +6,20 @@
  */
 
 module.exports = {
-  tableName: "calendar",
+  tableName: "appointments",
   attributes: {
     advisor_id: {
       type: "number",
       required: true,
     },
-    day: {
-      type: "string",
+    user_id: {
+      type: "number",
       required: true,
     },
-    start_time: {
+    appointment_date: { type: "ref", columnType: "date", required: true },
+    appointment_time: { type: "ref", columnType: "date", required: true },
+    remarks: {
       type: "string",
-      required: true,
     },
-    end_time: {
-      type: "string",
-      required: true,
-    }
   },
 };

@@ -46,7 +46,6 @@ module.exports = {
       outputExample: {},
     },
   },
-
   fn: async function (inputs) {
     var advisorId = this.req.param("id");
     var done = await Calendar.create({
