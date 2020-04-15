@@ -1,9 +1,18 @@
 /**
- * EmployeesController
  *
  * @description :: Server-side actions for handling incoming requests.
  * @help        :: See https://sailsjs.com/docs/concepts/actions
  */
+var _ = require("lodash");
+
+var week = [];
+week["SUNDAY"] = 0;
+week["MONDAY"] = 1;
+week["TUESDAY"] = 2;
+week["WEDNESDAY"] = 3;
+week["THURSDAY"] = 4;
+week["FRIDAY"] = 5;
+week["SATURDAY"] = 6;
 
 module.exports = {
   friendlyName: "Add availability for new advisor",
@@ -42,12 +51,11 @@ module.exports = {
     var advisorId = this.req.param("id");
     var done = await Calendar.create({
       advisor_id: advisorId,
-      day: inputs.day,
+      day: week[_.upperCase(inputs.day)],
       start_time: inputs.startTime,
       end_time: inputs.endTime,
       meeting_link: inputs.meetingLink,
     }).fetch();
-    console.log("done ", done);
     if (done.id > 0) {
       return {
         id: done.id,

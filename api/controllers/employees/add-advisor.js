@@ -31,7 +31,8 @@ module.exports = {
   exits: {
     invalidOrExpiredToken: {
       responseType: "expired",
-      description: "The provided token is expired, invalid, or already used up."
+      description:
+        "The provided token is expired, invalid, or already used up."
     },
     success: {
       outputDescription: "The newly created `Advisor`.",
