@@ -17,7 +17,8 @@ module.exports = {
       required: true,
     },
     appointment_date: { type: "ref", columnType: "date", required: true },
-    appointment_time: { type: "ref", columnType: "date", required: true },
+    appointment_start_time: { type: "ref", columnType: "date", required: true },
+    appointment_end_time: { type: "ref", columnType: "date", required: true },
     remarks: {
       type: "string",
     },

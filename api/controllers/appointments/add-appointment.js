@@ -24,7 +24,10 @@ module.exports = {
     appointmentDate: {
       type: "string",
     },
-    appointmentTime: {
+    appointmentStartTime: {
+      type: "string",
+    },
+    appointmentEndTime: {
       type: "string",
     },
     remarks: {
@@ -50,7 +53,8 @@ module.exports = {
       advisor_id: inputs.advisorId,
       user_id: userId,
       appointment_date: inputs.appointmentDate,
-      appointment_time: inputs.appointmentTime,
+      appointment_start_time: inputs.appointmentStartTime,
+      appointment_end_time: inputs.appointmentEndTime,
       remarks: inputs.remarks,
     }).fetch();
     if (done.id > 0) {
