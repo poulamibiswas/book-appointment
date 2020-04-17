@@ -70,8 +70,8 @@ Note:  Generators are usually run using the globally-installed `sails` CLI (comm
         "advisorId": 6,
         "appointmentDate": "2020-03-19",
         "appointmentStartTime":"4:00",
-    	"appointmentEndTime":"4:30",
-    	"remarks": "some random remark"
+        "appointmentEndTime":"4:30",
+        "remarks": "some remark"
     }
 
 - fetch all availability for particular advisor
