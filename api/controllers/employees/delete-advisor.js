@@ -33,7 +33,6 @@ module.exports = {
       email: emailToBeDeleted
     }).fetch();
 
-    console.log("Deleteed employee", deletedEmployee);
     if (deletedEmployee.length == 0) {
       return { message: "No employee with the given email" };
     }

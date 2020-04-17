@@ -48,7 +48,6 @@ module.exports = {
       email: inputs.email,
       meeting_link: inputs.meetingLink
     }).fetch();
-    console.log("done ", done);
     if (done.id > 0) {
       return { id: done.id, message: "Advisor created successfully" };
     }
