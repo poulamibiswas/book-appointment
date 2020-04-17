@@ -25,6 +25,8 @@ module.exports.routes = {
   "DELETE /advisor": "employees/delete-advisor",
   "POST /advisors/:id/calendar/block": "appointments/add-availability",
   "POST /users/:userId/appointment": "appointments/add-appointment",
+  "GET /get-availability": "appointments/get-availabilty-for-user",
+  "GET /get-all-availability": "appointments/get-availabilty-of-all-advisors",
 
   /***************************************************************************
    *                                                                          *
