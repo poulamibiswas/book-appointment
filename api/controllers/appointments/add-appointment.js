@@ -49,6 +49,14 @@ module.exports = {
 
   fn: async function (inputs) {
     var userId = this.req.param("userId");
+    var users = await Users.find({
+      id: inputs.userId,
+    });
+
+    const user = _.first(users);
+    if (user.allowed_free_slots === 0 || user.available_free_slots === 0) {
+      return { err_message: "No free slots available" };
+    }
     var done = await Appointments.create({
       advisor_id: inputs.advisorId,
       user_id: userId,
@@ -58,6 +66,10 @@ module.exports = {
       remarks: inputs.remarks,
     }).fetch();
     if (done.id > 0) {
+      await sails.helpers.sendEmail.with({
+        user: user,
+      });
+      await sails.helpers.updateSlotsForUser.with({ user: user });
       return {
         id: done.id,
         message: `Booked appointment for ${userId} successfully`,
