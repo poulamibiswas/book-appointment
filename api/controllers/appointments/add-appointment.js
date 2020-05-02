@@ -66,10 +66,13 @@ module.exports = {
       remarks: inputs.remarks,
     }).fetch();
     if (done.id > 0) {
-      await sails.helpers.sendEmail.with({
+      await sails.helpers.postBookingAnAppointment.with({
         user: user,
+        advisorId: inputs.advisorId,
+        appointmentDate: inputs.appointmentDate,
+        appointmentStartTime: inputs.appointmentStartTime,
+        appointmentEndTime: inputs.appointmentEndTime,
       });
-      await sails.helpers.updateSlotsForUser.with({ user: user });
       return {
         id: done.id,
         message: `Booked appointment for ${userId} successfully`,

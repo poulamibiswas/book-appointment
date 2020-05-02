@@ -5,8 +5,11 @@ const _ = require("lodash");
 
 module.exports = {
   inputs: {
-    user: {
-      type: "ref",
+    userEmail: {
+      type: "string",
+    },
+    body: {
+      type: "string",
     },
   },
 
@@ -33,13 +36,12 @@ module.exports = {
       },
     });
 
-    console.log(" user received ==> ", inputs.user);
     const mailOptions = {
       from: sails.config.emailUser,
-      to: inputs.user.email,
+      to: inputs.userEmail,
       subject: "Appointment alert",
       generateTextFromHTML: true,
-      html: "<b>Appoinment has been booked</b>",
+      html: `<b>${inputs.body}</b>`,
     };
 
     smtpTransport.sendMail(mailOptions, (error, response) => {
