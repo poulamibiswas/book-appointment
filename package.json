@@ -10,7 +10,7 @@
     "@sailshq/socket.io-redis": "^5.2.0",
     "googleapis": "^49.0.0",
     "grunt": "1.0.4",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "nodemailer": "^6.4.6",
     "sails": "^1.2.3",
     "sails-hook-grunt": "^4.0.0",
